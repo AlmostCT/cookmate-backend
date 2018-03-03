@@ -5,6 +5,7 @@ package ru.ifmo.ctddev.cookmate.model
 import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
 import org.springframework.data.annotation.TypeAlias
+import org.springframework.data.mongodb.core.index.Indexed
 
 /**
  * @author  Vadim Semenov (semenov@rain.ifmo.ru)
@@ -13,7 +14,7 @@ import org.springframework.data.annotation.TypeAlias
 @TypeAlias("recipe")
 data class Recipe(
         @Id val recipeId: ObjectId,
-        val name: String,
+        @Indexed(unique = true) val name: String,
         val rating: Int,
         val tools: String,
         val weight: String,

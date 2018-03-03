@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package ru.ifmo.ctddev.cookmate.controller
 
 import org.springframework.beans.factory.annotation.Autowired
@@ -12,13 +14,11 @@ import ru.ifmo.ctddev.cookmate.service.RecognitionService
 @RestController
 class RecognitionController {
     @Autowired
-    lateinit var recognitionService: RecognitionService
+    private lateinit var recognitionService: RecognitionService
 
 
     @GetMapping("/recognize")
     fun recognize(@RequestParam string: String): Int {
         return recognitionService.recognize(string)
     }
-
-
 }
