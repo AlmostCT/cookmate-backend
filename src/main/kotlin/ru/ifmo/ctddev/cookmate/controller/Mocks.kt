@@ -124,3 +124,22 @@ val comment = Comment(
         dislikes = 0
 )
 
+val comment1 = Comment(
+        commentId = ObjectId(),
+        account = vladimir,
+        target = pancake.recipeId,
+        text = "Со второго раза получились!",
+        date = System.currentTimeMillis(),
+        likes = 3,
+        dislikes = 5
+)
+
+val comment2 = Comment(
+        commentId = ObjectId(),
+        account = vladimir,
+        target = pancake.recipeId,
+        text = "Со второго раза получились!",
+        date = System.currentTimeMillis(),
+        likes = 2,
+        dislikes = 0
+)
