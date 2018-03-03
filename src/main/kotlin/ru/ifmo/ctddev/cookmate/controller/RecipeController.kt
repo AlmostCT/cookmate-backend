@@ -25,7 +25,11 @@ class RecipeController {
     @PostMapping("/saveRecipe")
     fun saveRecipe(@RequestBody recipe: Recipe): String = recipeService.saveRecipe(recipe)
 
+
     // TODO: REMOVE
     @GetMapping("/saveTestRecipe")
     fun saveTest(): String = saveRecipe(pancake)
+
+    @GetMapping("/saveTestRecipe2")
+    fun saveTest2(): String = saveRecipe(userRecipe)
 }

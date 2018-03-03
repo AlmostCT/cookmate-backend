@@ -23,4 +23,7 @@ class AccountController {
 
     @GetMapping("/saveTestAccount")
     fun saveTestAccount(): String = saveAccount(vladimir)
+
+    @GetMapping("/saveTestAccount2")
+    fun saveTestAccount2(): String = saveAccount(vadim)
 }

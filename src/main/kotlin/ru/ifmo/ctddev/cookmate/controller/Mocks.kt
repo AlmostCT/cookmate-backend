@@ -66,7 +66,26 @@ val pancake = Recipe(
         calories = "709 ккал",
         totalTime = 40,
         picture = null,
-        steps = listOf(step1, step2, step3, step4)
+        steps = listOf(step1, step2, step3, step4),
+        userName = null,
+        timeCreation = System.currentTimeMillis()
+)
+
+val userRecipe = Recipe(
+        ObjectId(),
+        name = "Pancake2",
+        rating = 5,
+        tools = "Миска, вилка, венчик и сковорода.",
+        weight = "95.3 г",
+        proteins = "24.8 г",
+        fats = "25.7 г",
+        carbohydrates = "95.3 г",
+        calories = "709 ккал",
+        totalTime = 40,
+        picture = null,
+        steps = listOf(step1, step2, step3, step4),
+        userName = "User",
+        timeCreation = System.currentTimeMillis()
 )
 
 // === Accounts === //
@@ -77,6 +96,20 @@ val vladimir = Account(
         avatar = null,
         rating = 4,
         achievements = listOf()
+)
+
+val pancakeAchievement = Achievement(
+        name = "pancakeAchievement",
+        description = "За лучшие блинчики в твоей жизни!",
+        image = "pancakeAchievement.svg"
+)
+
+val vadim = Account(
+        id = ObjectId(),
+        handle = "Vadim",
+        avatar = null,
+        rating = 4,
+        achievements = listOf(pancakeAchievement)
 )
 
 // === Comments === //
@@ -90,3 +123,4 @@ val comment = Comment(
         likes = 1,
         dislikes = 0
 )
+

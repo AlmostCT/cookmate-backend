@@ -6,6 +6,7 @@ import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
 import org.springframework.data.annotation.TypeAlias
 import org.springframework.data.mongodb.core.index.Indexed
+import org.springframework.data.mongodb.core.mapping.DBRef
 
 /**
  * @author  Vadim Semenov (semenov@rain.ifmo.ru)
@@ -16,5 +17,5 @@ data class Account(
         @Indexed(unique = true) val handle: String,
         val rating: Int,
         val avatar: String?,
-        val achievements: List<Achievement>
+        @DBRef val achievements: List<Achievement>
 )
