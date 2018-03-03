@@ -2,6 +2,8 @@
 
 package ru.ifmo.ctddev.cookmate.model
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer
 import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
 import org.springframework.data.annotation.TypeAlias
@@ -12,9 +14,9 @@ import org.springframework.data.mongodb.core.mapping.DBRef
  */
 @TypeAlias("comment")
 data class Comment(
-        @Id val commentId: ObjectId?,
+        @Id @JsonSerialize(using = ToStringSerializer::class) val commentId: ObjectId?,
         @DBRef val account: Account,
-        val target: ObjectId,
+        @JsonSerialize(using = ToStringSerializer::class) val target: ObjectId,
         val text: String,
         val date: Long,
         val likes: Int,

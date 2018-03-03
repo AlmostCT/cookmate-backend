@@ -2,10 +2,11 @@
 
 package ru.ifmo.ctddev.cookmate.model
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer
 import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
 import org.springframework.data.annotation.TypeAlias
-import org.springframework.data.mongodb.core.index.Indexed
 
 /**
  * @author  Vadim Semenov (semenov@rain.ifmo.ru)
@@ -13,7 +14,7 @@ import org.springframework.data.mongodb.core.index.Indexed
 
 @TypeAlias("recipe")
 data class Recipe(
-        @Id val recipeId: ObjectId,
+        @Id @JsonSerialize(using = ToStringSerializer::class) val recipeId: ObjectId?,
         val timeCreation : Long,
         val userName: String?,
         val name: String,
@@ -31,7 +32,7 @@ data class Recipe(
 
 @TypeAlias("recipeStep")
 data class RecipeStep(
-        @Id val id : ObjectId,
+        @Id @JsonSerialize(using = ToStringSerializer::class) val id : ObjectId?,
         val stepId: Int,
         val shortDescription: String,
         val longDescription: String,
@@ -41,7 +42,7 @@ data class RecipeStep(
 
 @TypeAlias("product")
 data class Product (
-        @Id val id : ObjectId,
+        @Id @JsonSerialize(using = ToStringSerializer::class) val id : ObjectId?,
         val name: String,
         val amount: String
 )
