@@ -5,6 +5,7 @@ package ru.ifmo.ctddev.cookmate.model
 import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
 import org.springframework.data.annotation.TypeAlias
+import org.springframework.data.mongodb.core.index.Indexed
 
 /**
  * @author  Vadim Semenov (semenov@rain.ifmo.ru)
@@ -14,8 +15,8 @@ import org.springframework.data.annotation.TypeAlias
 data class Recipe(
         @Id val recipeId: ObjectId,
         val timeCreation : Long,
-        val name: String,
         val userName: String?,
+        val name: String,
         val rating: Int,
         val tools: String,
         val weight: String,

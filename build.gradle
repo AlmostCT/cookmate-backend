@@ -50,7 +50,7 @@ dependencies {
 
 	compile "org.deeplearning4j:deeplearning4j-core:${dl4j_version}"
 	compile "org.deeplearning4j:deeplearning4j-ui_2.10:${dl4j_version}"
-	compile "org.nd4j:nd4j-cuda-8.0-platform:${dl4j_version}"
+	compile "org.nd4j:nd4j-native-platform:${dl4j_version}"
 
 	runtime('org.springframework.boot:spring-boot-devtools')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
