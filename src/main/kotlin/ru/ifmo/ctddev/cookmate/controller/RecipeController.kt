@@ -21,12 +21,21 @@ class RecipeController {
     @GetMapping("/recipes/{name}")
     fun getRecipe(@PathVariable name: String): Recipe? = recipeService.getRecipe(name)
 
+    @GetMapping("/userRecipes")
+    fun getUserRecipes(@RequestParam topCount: Int, @RequestParam randomCount : Int):
+            List<Recipe> = recipeService.getUserRecipes(topCount, randomCount)
+
     @PostMapping("/saveRecipe")
     fun saveRecipe(@RequestBody recipe: Recipe): String = recipeService.saveRecipe(recipe)
+
 
     // TODO: REMOVE
     @GetMapping("/saveTest")
     fun saveTest(): String = saveRecipe(pancake)
+
+    // TODO: REMOVE
+    @GetMapping("/saveTest2")
+    fun saveTest2(): String = saveRecipe(userRecipe)
 
     // mocks TODO: remove
     companion object {
@@ -85,7 +94,26 @@ class RecipeController {
                 calories = "709 ккал",
                 totalTime = 40,
                 picture = null,
-                steps = listOf(step1, step2, step3, step4)
+                steps = listOf(step1, step2, step3, step4),
+                userName = null,
+                timeCreation = System.currentTimeMillis()
+        )
+
+        private val userRecipe = Recipe(
+                ObjectId(),
+                name = "Pancake2",
+                rating = 5,
+                tools = "Миска, вилка, венчик и сковорода.",
+                weight = "95.3 г",
+                proteins = "24.8 г",
+                fats = "25.7 г",
+                carbohydrates = "95.3 г",
+                calories = "709 ккал",
+                totalTime = 40,
+                picture = null,
+                steps = listOf(step1, step2, step3, step4),
+                userName = "User",
+                timeCreation = System.currentTimeMillis()
         )
     }
 }

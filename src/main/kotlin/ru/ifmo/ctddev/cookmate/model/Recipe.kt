@@ -13,7 +13,9 @@ import org.springframework.data.annotation.TypeAlias
 @TypeAlias("recipe")
 data class Recipe(
         @Id val recipeId: ObjectId,
+        val timeCreation : Long,
         val name: String,
+        val userName: String?,
         val rating: Int,
         val tools: String,
         val weight: String,
