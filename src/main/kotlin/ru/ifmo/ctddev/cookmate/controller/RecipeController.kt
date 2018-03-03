@@ -2,73 +2,79 @@
 
 package ru.ifmo.ctddev.cookmate.controller
 
+import org.bson.types.ObjectId
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 import ru.ifmo.ctddev.cookmate.model.Product
-import ru.ifmo.ctddev.cookmate.model.Receipt
-import ru.ifmo.ctddev.cookmate.model.ReceiptStep
-import ru.ifmo.ctddev.cookmate.service.ReceiptService
+import ru.ifmo.ctddev.cookmate.model.Recipe
+import ru.ifmo.ctddev.cookmate.model.RecipeStep
+import ru.ifmo.ctddev.cookmate.service.RecipeService
 
 /**
  * @author  Vadim Semenov (semenov@rain.ifmo.ru)
  */
 @RestController
-class ReceiptController {
+class RecipeController {
     @Autowired
-    lateinit var receiptService: ReceiptService
+    lateinit var recipeService: RecipeService
 
-    @GetMapping("/receipts/{name}")
-    fun getReceipt(@PathVariable name: String): Receipt? = receiptService.getReceipt(name)
+    @GetMapping("/recipes/{name}")
+    fun getRecipe(@PathVariable name: String): Recipe? = recipeService.getRecipe(name)
 
-    @PostMapping("/saveReceipt")
-    fun saveReceipt(@RequestBody receipt: Receipt): String = receiptService.saveReceipt(receipt)
+    @PostMapping("/saveRecipe")
+    fun saveRecipe(@RequestBody recipe: Recipe): String = recipeService.saveRecipe(recipe)
 
     // TODO: REMOVE
     @GetMapping("/saveTest")
-    fun saveTest(): String = saveReceipt(pancake)
+    fun saveTest(): String = saveRecipe(pancake)
 
     // mocks TODO: remove
     companion object {
-        private val milk = Product("Молоко", "500 мл")
-        private val eggs = Product("Яйца", "3 шт.")
-        private val flour = Product("Мука", "200 г")
-        private val butter = Product("Масло сливочное", "30 г")
-        private val sugar = Product("Сахар", "2 ст. ложки")
-        private val salt = Product("Соль", "1/2 ч. ложки")
+        private val milk = Product(ObjectId(), "Молоко", "500 мл")
+        private val eggs = Product(ObjectId(), "Яйца", "3 шт.")
+        private val flour = Product(ObjectId(),"Мука", "200 г")
+        private val butter = Product(ObjectId(),"Масло сливочное", "30 г")
+        private val sugar = Product(ObjectId(),"Сахар", "2 ст. ложки")
+        private val salt = Product(ObjectId(),"Соль", "1/2 ч. ложки")
 
-        private val step1 = ReceiptStep(
+        private val step1 = RecipeStep(
+                 ObjectId(),
                 1,
                 "Взбейте яйца",
                 "Взбейте яйца с сахаром, постепенно введите муку и соль.",
                 0,
-                arrayOf(eggs, sugar, flour, salt)
+                listOf(eggs, sugar, flour, salt)
         )
 
-        private val step2 = ReceiptStep(
+        private val step2 = RecipeStep(
+                ObjectId(),
                 stepId = 2,
                 shortDescription = "Влейте молоко",
                 longDescription = "Влейте молоко и аккуратно размешайте до однородной массы.",
                 time = 0,
-                products = arrayOf(milk)
+                products = listOf(milk)
         )
 
-        private val step3 = ReceiptStep(
+        private val step3 = RecipeStep(
+                ObjectId(),
                 stepId = 3,
                 shortDescription = "Оставьте на 20 минут",
                 longDescription = "Оставьте на 20 минут.",
                 time = 20 * 60,
-                products = arrayOf()
+                products = listOf()
         )
 
-        private val step4 = ReceiptStep(
+        private val step4 = RecipeStep(
+                ObjectId(),
                 stepId = 4,
                 shortDescription = "Добавьте растительное масло",
                 longDescription = "Добавьте в тесто растительное масло и жарьте блины на сильно разогретой сковороде.",
                 time = 0,
-                products = arrayOf(butter)
+                products = listOf(butter)
         )
 
-        private val pancake = Receipt(
+        private val pancake = Recipe(
+                ObjectId(),
                 name = "Pancake",
                 rating = 5,
                 tools = "Миска, вилка, венчик и сковорода.",
@@ -79,7 +85,7 @@ class ReceiptController {
                 calories = "709 ккал",
                 totalTime = 40,
                 picture = null,
-                steps = arrayOf(step1, step2, step3, step4)
+                steps = listOf(step1, step2, step3, step4)
         )
     }
 }
