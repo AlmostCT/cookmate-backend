@@ -14,7 +14,7 @@ class AchievementController {
     private lateinit var achievementService: AchievementService
 
     @GetMapping("/achievements/{name}")
-    fun getAccount(@PathVariable name: String): Achievement? = achievementService.getAchievement(name)
+    fun getAchievement(@PathVariable name: String): Achievement? = achievementService.getAchievement(name)
 
     @PostMapping("/saveAchievement")
     fun saveAchievement(@RequestBody achievement: Achievement): String = achievementService.saveAchievement(achievement)

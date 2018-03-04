@@ -18,9 +18,9 @@ class RecipeController {
     @GetMapping("/recipes/{name}")
     fun getRecipe(@PathVariable name: String): Recipe? = recipeService.getRecipe(name)
 
-    @GetMapping("/userRecipes")
-    fun getUserRecipes(@RequestParam topCount: Int, @RequestParam randomCount : Int):
-            List<Recipe> = recipeService.getUserRecipes(topCount, randomCount)
+    @GetMapping("/usersRecipes")
+    fun getUsersRecipes(@RequestParam topCount: Int, @RequestParam randomCount : Int): List<Recipe> =
+            recipeService.getUsersRecipes(topCount, randomCount)
 
     @PostMapping("/saveRecipe")
     fun saveRecipe(@RequestBody recipe: Recipe): String = recipeService.saveRecipe(recipe)
