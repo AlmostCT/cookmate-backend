@@ -10,7 +10,7 @@
     "carbohydrates": "25 грамм",
     "calories": "343 ккал",
     "totalTime": "15 минут",
-    "picture": "recipeA.png",
+    "picture": "1",
     "userName" : "Вадим Семенов",
     "ingredients": [
       {
@@ -156,7 +156,7 @@
     "carbohydrates": "16.3 грамм",
     "calories": "94 ккал",
     "totalTime": "10 минут",
-    "picture": "recipeB.png",
+    "picture": "2",
     "userName" : "Леонид Старцев",
     "ingredients": [
       {
@@ -254,7 +254,7 @@
     "carbohydrates": "2 грамма",
     "calories": "197 ккал",
     "totalTime": "15 минут",
-    "picture": "recipeC.png",
+    "picture": "3",
     "userName" : "Владимир Красновцетов",
     "ingredients": [
       {
@@ -328,7 +328,7 @@
     "carbohydrates": "49.9 грамм",
     "calories": "221 ккал",
     "totalTime": "15 минут",
-    "picture": "recipeD.png",
+    "picture": "4",
     "ingredients": [
       {
         "name": "Сахар",
@@ -384,104 +384,6 @@
   },
   {
     "timeCreation": 1520121600000,
-    "name": "Хоткейки (американские блинчики)",
-    "rating": 5,
-    "tools": "Сковородка с антипригарным покрытием, венчик, вилка и глубокая миска",
-    "weight": "280 г",
-    "proteins": "3 г",
-    "fats": "1.9 г",
-    "carbohydrates": "16.3 г",
-    "calories": "94 ккал",
-    "totalTime": "10 минут",
-    "picture": "recipeE.png",
-    "userName" : "Леонид Старцев",
-    "ingredients": [
-      {
-        "name": "Яйцо куриное",
-        "amount": "1 штука"
-      },
-      {
-        "name": "Молоко",
-        "amount": "100 миллилитров"
-      },
-      {
-        "name": "Пшеничная мука",
-        "amount": "5 столовых ложек"
-      },
-      {
-        "name": "Разрыхлитель",
-        "amount": "1 чайная ложка"
-      },
-      {
-        "name": "Сахар",
-        "amount": "2 столовые ложки"
-      },
-      {
-        "name": "Ванилин",
-        "amount": "По вкусу"
-      }
-    ],
-    "steps": [
-      {
-        "stepId": 1,
-        "shortDescription": "Смешать все ингредиенты",
-        "longDescription": "Смешать все ингредиенты венчиком или вилкой (должно получиться достаточно густое тесто).",
-        "time": 0,
-        "products": [
-          {
-            "name": "Яйцо куриное",
-            "amount": "1 штука"
-          },
-          {
-            "name": "Молоко",
-            "amount": "100 миллилитров"
-          },
-          {
-            "name": "Пшеничная мука",
-            "amount": "5 столовых ложек"
-          },
-          {
-            "name": "Разрыхлитель",
-            "amount": "1 чайная ложка"
-          },
-          {
-            "name": "Сахар",
-            "amount": "2 столовые ложки"
-          },
-          {
-            "name": "Ванилин",
-            "amount": "По вкусу"
-          }
-        ]
-      },
-      {
-        "stepId": 2,
-        "shortDescription": "Разогреть сковородку с антипригарным покрытием",
-        "longDescription": "Разогреть сковородку с антипригарным покрытием.",
-        "time": 60,
-        "products": [
-        ]
-      },
-      {
-        "stepId": 3,
-        "shortDescription": "Налить тесто на сухую сковородку и жарить до появления пузырьков",
-        "longDescription": "На среднем огне на сухую сковородку налить тесто, закрыть стеклянной крышкой, дождаться появления пузыриков, при этом поверхность будет еще влажная.",
-        "time": 30,
-        "products": [
-        ]
-      },
-      {
-        "stepId": 4,
-        "shortDescription": "Перевернуть и печь под крышкой",
-        "longDescription": "Перевернуть и печь под крышкой.",
-        "time": 30,
-        "products": [
-        ]
-      }
-    ]
-  },
-  {
-    "timeCreation": 1520121600000,
     "name": "Тонкое тесто для пиццы",
     "rating": 3,
     "tools": "Комбайн, миска, кувшин, скалка для теста, противень",
@@ -491,7 +393,7 @@
     "carbohydrates": "33 г",
     "calories": "200 ккал",
     "totalTime": "1 час",
-    "picture": "recipeF.png",
+    "picture": "5",
     "userName" : null,
     "ingredients": [
       {
@@ -573,7 +475,7 @@
     "carbohydrates": "40.7 грамма",
     "calories": "230 ккал",
     "totalTime": "35 минут",
-    "picture": "recipeG.png",
+    "picture": "6",
     "userName" : null,
     "ingredients": [
       {
