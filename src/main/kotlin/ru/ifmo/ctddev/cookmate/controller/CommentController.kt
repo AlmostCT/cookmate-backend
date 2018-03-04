@@ -25,7 +25,7 @@ class CommentController {
                        @RequestParam(required = false, defaultValue = "2") qty: Int): List<Comment> =
             commentService.getTopComments(target, qty)
 
-    @PostMapping("postComment")
+    @PostMapping("/postComment")
     fun postComment(@RequestBody comment: Comment): String {
         commentService.saveComment(comment)
         return "Comment saved"
