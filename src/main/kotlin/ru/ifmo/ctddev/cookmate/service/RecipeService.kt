@@ -27,7 +27,7 @@ class RecipeServiceImpl : RecipeService {
 
     override fun getRecipe(recipeName: String): Recipe? = recipeRepository.findByName(recipeName)
 
-    override fun getAllRecipes(): List<Recipe> = recipeRepository.findAll()
+    override fun getAllRecipes(): List<Recipe> = recipeRepository.findAll().shuffled()
 
     override fun getRecipe(id: ObjectId): Recipe? = recipeRepository.findByRecipeId(id)
 

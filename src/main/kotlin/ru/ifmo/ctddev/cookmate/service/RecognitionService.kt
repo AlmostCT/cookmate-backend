@@ -47,7 +47,7 @@ class RecognitionServiceImpl: RecognitionService {
             2 -> return "Prev"
             3 -> return "Time"
             4 -> {
-                val sb = StringBuilder("Сейчас нужны следующие ингридиенты. ")
+                val sb = StringBuilder("Сейчас нужны следующие ингредиенты. ")
                 for (p in step.products) {
                     sb.append("Надо ${p.name}, ${p.amount} ")
                 }

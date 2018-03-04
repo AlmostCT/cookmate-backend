@@ -23,7 +23,7 @@ class RecipeController {
             recipeService.getUsersRecipes(topCount, randomCount)
 
     @GetMapping("/allRecipes")
-    fun getAllRecipes(): List<Recipe> = recipeService.getAllRecipes()
+    fun getAllRecipes(@RequestParam topCount: Int): List<Recipe> = recipeService.getAllRecipes().take(topCount)
 
     @PostMapping("/saveRecipe")
     fun saveRecipe(@RequestBody recipe: Recipe): String = recipeService.saveRecipe(recipe)

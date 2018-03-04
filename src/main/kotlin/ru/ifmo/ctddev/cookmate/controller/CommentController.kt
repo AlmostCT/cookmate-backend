@@ -37,11 +37,11 @@ class CommentController {
             commentService.getTopComments(target, step, qty)
 
     @PostMapping("/postComment")
-    fun postComment(@RequestBody commentRequest: AddCommentRequest): String {
+    fun postComment(@RequestBody commentRequest: AddCommentRequest): Comment {
         val comment = Comment(null, accountService.getAccount(commentRequest.accountId)!!, commentRequest.recipeId, commentRequest.text,
                 System.currentTimeMillis(), 0, 0, commentRequest.step)
-        return commentService.saveComment(comment)
-        return "Success"
+        commentService.saveComment(comment)
+        return comment
     }
 
     fun postComment(comment : Comment): String {
