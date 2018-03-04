@@ -22,13 +22,6 @@ class AccountController {
     @PostMapping("/saveAccount")
     fun saveAccount(@RequestBody account: Account): String = accountService.saveAccount(account)
 
-    @GetMapping("/saveTestAccount")
-    fun saveTestAccount(): String = saveAccount(vladimir)
-
-    @GetMapping("/saveTestAccount2")
-    fun saveTestAccount2(): String = saveAccount(vadim)
-
-
     @PostMapping("/saveListAccount")
     fun saveListAccount(@RequestBody accounts: Array<Account>): String {
         for (account in accounts) {

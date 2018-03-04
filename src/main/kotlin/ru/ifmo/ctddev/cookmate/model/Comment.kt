@@ -20,5 +20,6 @@ data class Comment(
         val text: String,
         val date: Long,
         val likes: Int,
-        val dislikes: Int
+        val dislikes: Int,
+        val stepId: Int
 )

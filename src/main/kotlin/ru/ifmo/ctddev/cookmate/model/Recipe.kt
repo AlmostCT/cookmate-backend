@@ -33,7 +33,6 @@ data class Recipe(
 
 @TypeAlias("recipeStep")
 data class RecipeStep(
-        @Id @JsonSerialize(using = ToStringSerializer::class) val id : ObjectId?,
         val stepId: Int,
         val shortDescription: String,
         val longDescription: String,

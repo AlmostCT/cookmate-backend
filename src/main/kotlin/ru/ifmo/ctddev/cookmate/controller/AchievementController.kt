@@ -19,9 +19,6 @@ class AchievementController {
     @PostMapping("/saveAchievement")
     fun saveAchievement(@RequestBody achievement: Achievement): String = achievementService.saveAchievement(achievement)
 
-    @GetMapping("/saveTestAchievement")
-    fun saveTestAccount(): String = saveAchievement(pancakeAchievement)
-
     @PostMapping("/saveListAchievement")
     fun saveListAchievement(@RequestBody achievements: Array<Achievement>): String {
         for (achievement in achievements) {

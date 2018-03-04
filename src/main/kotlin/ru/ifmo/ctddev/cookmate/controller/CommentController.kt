@@ -6,7 +6,9 @@ import org.bson.types.ObjectId
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 import ru.ifmo.ctddev.cookmate.model.Comment
+import ru.ifmo.ctddev.cookmate.service.AccountService
 import ru.ifmo.ctddev.cookmate.service.CommentService
+import ru.ifmo.ctddev.cookmate.service.RecipeService
 
 /**
  * @author  Vadim Semenov (semenov@rain.ifmo.ru)
@@ -17,24 +19,45 @@ class CommentController {
     private lateinit var commentService: CommentService
 
     @GetMapping("/comments/all")
-    fun getAllComments(@RequestParam target: ObjectId): List<Comment> =
-            commentService.getAllComments(target)
+    fun getAllComments(@RequestParam target: ObjectId,
+                       @RequestParam(required = false, defaultValue = "-1") step: Int): List<Comment> =
+            commentService.getAllComments(target, step)
 
     @GetMapping("/comments/top")
     fun getTopComments(@RequestParam target: ObjectId,
+                       @RequestParam(required = false, defaultValue = "-1") step: Int,
                        @RequestParam(required = false, defaultValue = "2") qty: Int): List<Comment> =
-            commentService.getTopComments(target, qty)
+            commentService.getTopComments(target, step, qty)
 
-    @PostMapping("postComment")
+    @PostMapping("/postComment")
     fun postComment(@RequestBody comment: Comment): String {
         commentService.saveComment(comment)
         return "Comment saved"
     }
 
-    @GetMapping("postTestComment")
-    fun postComment(): String = postComment(comment)
-    @GetMapping("postTestComment1")
-    fun postComment1(): String = postComment(comment1)
-    @GetMapping("postTestComment2")
-    fun postComment2(): String = postComment(comment2)
+
+    @Autowired
+    private lateinit var accountService: AccountService
+
+    @Autowired
+    private lateinit var recipeService: RecipeService
+
+
+
+
+    @GetMapping("/postTestComment")
+    fun postTestComment(): String  {
+        val comment3 = Comment(
+                commentId = null,
+                account = accountService.getAccount(ObjectId("5a9b7a113cfe433b705e124f"))!!,
+                target = recipeService.getRecipe(ObjectId("5a9b7b4c3cfe43439867770e"))!!.recipeId!!,
+                text = "Добавил три щепотки соли и улетел!",
+                date = System.currentTimeMillis(),
+                likes =  192,
+                dislikes = 10,
+                stepId = 1
+        )
+        postComment(comment3)
+        return "success"
+    }
 }

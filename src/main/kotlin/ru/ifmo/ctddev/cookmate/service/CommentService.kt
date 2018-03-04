@@ -12,8 +12,8 @@ import ru.ifmo.ctddev.cookmate.repo.CommentRepository
  * @author  Vadim Semenov (semenov@rain.ifmo.ru)
  */
 interface CommentService {
-    fun getTopComments(targetId: ObjectId, qty: Int = 1): List<Comment>
-    fun getAllComments(targetId: ObjectId): List<Comment>
+    fun getTopComments(targetId: ObjectId, step : Int, qty: Int = 1): List<Comment>
+    fun getAllComments(targetId: ObjectId, step : Int): List<Comment>
     fun saveComment(comment: Comment): String
 }
 
@@ -22,11 +22,12 @@ class CommentServiceImpl : CommentService {
     @Autowired
     private lateinit var commentRepository: CommentRepository
 
-    override fun getTopComments(targetId: ObjectId, qty: Int): List<Comment> =
-            commentRepository.findByTargetOrderByLikesDesc(targetId, qty).sortedBy { it.dislikes - it.likes }.take(qty)
+    override fun getTopComments(targetId: ObjectId, step : Int, qty: Int): List<Comment> =
+            commentRepository.findByTargetOrderByLikesDesc(targetId, qty).
+                    filter { t ->  t.stepId == step }.sortedBy { it.dislikes - it.likes }.take(qty)
 
-    override fun getAllComments(targetId: ObjectId): List<Comment> =
-            commentRepository.findByTarget(targetId)
+    override fun getAllComments(targetId: ObjectId, step : Int): List<Comment> =
+            commentRepository.findByTarget(targetId).filter { t -> t.stepId == step }
 
     override fun saveComment(comment: Comment): String {
         commentRepository.save(comment)
