@@ -11,12 +11,12 @@ import ru.ifmo.ctddev.cookmate.model.*
 
 // === Recipe === //
 
-val milk = Product(ObjectId(), "Молоко", "500 мл")
-val eggs = Product(ObjectId(), "Яйца", "3 шт.")
-val flour = Product(ObjectId(),"Мука", "200 г")
-val butter = Product(ObjectId(),"Масло сливочное", "30 г")
-val sugar = Product(ObjectId(),"Сахар", "2 ст. ложки")
-val salt = Product(ObjectId(),"Соль", "1/2 ч. ложки")
+val milk = Product(ObjectId(), "Молоко", "500 миллилитров")
+val eggs = Product(ObjectId(), "Яйца", "3 штук")
+val flour = Product(ObjectId(),"Мука", "200 грамм")
+val butter = Product(ObjectId(),"Масло сливочное", "30 грамм")
+val sugar = Product(ObjectId(),"Сахар", "2 столовые ложки")
+val salt = Product(ObjectId(),"Соль", "1/2 чайные ложки")
 
 val step1 = RecipeStep(
         ObjectId(),
@@ -117,7 +117,7 @@ val vadim = Account(
 val comment = Comment(
         commentId = ObjectId(),
         account = vladimir,
-        target = step4.id,
+        target = step4.id!!,
         text = "Сгорели блинчики, пока играл с котёнком :(",
         date = System.currentTimeMillis(),
         likes = 1,
@@ -127,7 +127,7 @@ val comment = Comment(
 val comment1 = Comment(
         commentId = ObjectId(),
         account = vladimir,
-        target = pancake.recipeId,
+        target = pancake.recipeId!!,
         text = "Со второго раза получились!",
         date = System.currentTimeMillis(),
         likes = 3,
@@ -137,7 +137,7 @@ val comment1 = Comment(
 val comment2 = Comment(
         commentId = ObjectId(),
         account = vladimir,
-        target = pancake.recipeId,
+        target = pancake.recipeId!!,
         text = "Со второго раза получились!",
         date = System.currentTimeMillis(),
         likes = 2,

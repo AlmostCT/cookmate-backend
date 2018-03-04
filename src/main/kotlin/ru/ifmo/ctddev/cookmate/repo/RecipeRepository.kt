@@ -14,4 +14,6 @@ interface RecipeRepository : MongoRepository<Recipe, ObjectId> {
 
     @Query("{'userName' : {\$ne : null}}")
     fun findAllUsersRecipe() : List<Recipe>
+
+    fun findByRecipeId(id: ObjectId): Recipe?
 }

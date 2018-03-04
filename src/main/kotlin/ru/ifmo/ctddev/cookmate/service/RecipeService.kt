@@ -13,6 +13,7 @@ import ru.ifmo.ctddev.cookmate.repo.RecipeRepository
  */
 interface RecipeService {
     fun getRecipe(recipeName: String): Recipe?
+    fun getRecipe(id: ObjectId): Recipe?
     fun saveRecipe(recipe: Recipe): String
     fun getUserRecipes(topCount : Int, randomCount : Int): List<Recipe>
 }
@@ -23,6 +24,8 @@ class RecipeServiceImpl : RecipeService {
     private lateinit var recipeRepository: RecipeRepository
 
     override fun getRecipe(recipeName: String): Recipe? = recipeRepository.findByName(recipeName)
+
+    override fun getRecipe(id: ObjectId): Recipe? = recipeRepository.findByRecipeId(id)
 
     override fun saveRecipe(recipe: Recipe): String {
         val result = recipeRepository.save(recipe)
