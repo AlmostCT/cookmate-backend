@@ -16,14 +16,18 @@ interface RecipeService {
     fun getRecipe(id: ObjectId): Recipe?
     fun saveRecipe(recipe: Recipe): String
     fun getUsersRecipes(topCount : Int, randomCount : Int): List<Recipe>
+    fun getAllRecipes(): List<Recipe>
 }
 
 @Service("recipeService")
 class RecipeServiceImpl : RecipeService {
+
     @Autowired
     private lateinit var recipeRepository: RecipeRepository
 
     override fun getRecipe(recipeName: String): Recipe? = recipeRepository.findByName(recipeName)
+
+    override fun getAllRecipes(): List<Recipe> = recipeRepository.findAll()
 
     override fun getRecipe(id: ObjectId): Recipe? = recipeRepository.findByRecipeId(id)
 

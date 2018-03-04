@@ -23,3 +23,10 @@ data class Comment(
         val dislikes: Int,
         val stepId: Int
 )
+
+data class AddCommentRequest (
+    val accountId : ObjectId,
+    val recipeId : ObjectId,
+    val text : String,
+    val step : Int
+)
