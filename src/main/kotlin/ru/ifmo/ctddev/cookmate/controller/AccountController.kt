@@ -5,6 +5,7 @@ package ru.ifmo.ctddev.cookmate.controller
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 import ru.ifmo.ctddev.cookmate.model.Account
+import ru.ifmo.ctddev.cookmate.model.Achievement
 import ru.ifmo.ctddev.cookmate.service.AccountService
 
 /**
@@ -26,4 +27,13 @@ class AccountController {
 
     @GetMapping("/saveTestAccount2")
     fun saveTestAccount2(): String = saveAccount(vadim)
+
+
+    @PostMapping("/saveListAccount")
+    fun saveListAccount(@RequestBody accounts: Array<Account>): String {
+        for (account in accounts) {
+            accountService.saveAccount(account)
+        }
+        return "success"
+    }
 }

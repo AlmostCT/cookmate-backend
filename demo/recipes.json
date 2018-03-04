@@ -10,7 +10,8 @@
     "carbohydrates": "25 грамм",
     "calories": "343 килокалорий",
     "totalTime": "15 минут",
-    "picture": null,
+    "picture": "recipeA.png",
+    "userName" : "Вадим Семенов",
     "ingredients": [
       {
         "name": "Перец черный молотый",
@@ -155,7 +156,8 @@
     "carbohydrates": "16.3 грамм",
     "calories": "94 килокалорий",
     "totalTime": "10 минут",
-    "picture": null,
+    "picture": "recipeB.png",
+    "userName" : "Леонид Старцев",
     "ingredients": [
       {
         "name": "Яйцо куриное",
@@ -252,7 +254,8 @@
     "carbohydrates": "2 грамма",
     "calories": "197 килокалорий",
     "totalTime": "15 минут",
-    "picture": null,
+    "picture": "recipeC.png",
+    "userName" : "Владимир Красновцетов",
     "ingredients": [
       {
         "name": "Яйцо куриное",
@@ -325,7 +328,7 @@
     "carbohydrates": "49.9 грамм",
     "calories": "221 килокалория",
     "totalTime": "15 минут",
-    "picture": null,
+    "picture": "recipeD.png",
     "ingredients": [
       {
         "name": "Сахар",

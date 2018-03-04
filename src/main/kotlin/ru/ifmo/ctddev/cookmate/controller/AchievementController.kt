@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 import ru.ifmo.ctddev.cookmate.model.Account
 import ru.ifmo.ctddev.cookmate.model.Achievement
+import ru.ifmo.ctddev.cookmate.model.Recipe
 import ru.ifmo.ctddev.cookmate.service.AccountService
 import ru.ifmo.ctddev.cookmate.service.AchievementService
 
@@ -20,4 +21,12 @@ class AchievementController {
 
     @GetMapping("/saveTestAchievement")
     fun saveTestAccount(): String = saveAchievement(pancakeAchievement)
+
+    @PostMapping("/saveListAchievement")
+    fun saveListAchievement(@RequestBody achievements: Array<Achievement>): String {
+        for (achievement in achievements) {
+            achievementService.saveAchievement(achievement)
+        }
+        return "success"
+    }
 }

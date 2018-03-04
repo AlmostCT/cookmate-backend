@@ -1,0 +1,22 @@
+[
+  {
+    "name" : "Месяц вместе",
+    "description" : "За первый месяц, проведенный с нами!",
+    "image" : "first_month_achievement.png"
+  },
+  {
+    "name" : "Первое блюдо",
+    "description" : "Первое блюдо, приготовленное с нами!",
+    "image" : "fried_eggs_achievement.png"
+  },
+  {
+    "name" : "Любовь с первой коробки",
+    "description" : "За первую коробку, заказанную у нас!",
+    "image" : "first_love_achievement.png"
+  },
+  {
+    "name" : "Первый блин не комом",
+    "description" : "Первые блинчики!",
+    "image" : "pancake_achievement.png"
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "handle" : "Вадим Семенов",
+    "rating" : 1000,
+    "avatar" : "userA.png",
+    "achievements" : [
+      {
+        "name" : "Первое блюдо",
+        "description" : "Первое блюдо, приготовленное с нами!",
+        "image" : "fried_eggs_achievement.png"
+      },
+      {
+        "name": "Месяц вместе",
+        "description": "За первый месяц, проведенный с нами!",
+        "image": "first_month_achievement.png"
+      }
+    ]
+  },
+  {
+    "handle" : "Владимир Красноцветов",
+    "rating" : 900,
+    "avatar" : null,
+    "achievements" : [
+      {
+        "name" : "Первое блюдо",
+        "description" : "Первое блюдо, приготовленное с нами!",
+        "image" : "fried_eggs_achievement.png"
+      }
+    ]
+  },
+  {
+    "handle" : "Алевтина Анищенко",
+    "rating" : 2600,
+    "avatar" : "userB.png",
+    "achievements" : [
+      {
+        "name" : "Любовь с первой коробки",
+        "description" : "За первую коробку, заказанную у нас!",
+        "image" : "first_love_achievement.png"
+      },
+      {
+        "name" : "Первое блюдо",
+        "description" : "Первое блюдо, приготовленное с нами!",
+        "image" : "fried_eggs_achievement.png"
+      }
+    ]
+  },
+  {
+    "handle" : "Леонид Старцев",
+    "rating" : 1200,
+    "avatar" : null,
+    "achievements" : [
+      {
+        "name" : "Первый блин не комом",
+        "description" : "Первые блинчики!",
+        "image" : "pancake_achievement.png"
+      },
+      {
+        "name" : "Первое блюдо",
+        "description" : "Первое блюдо, приготовленное с нами!",
+        "image" : "fried_eggs_achievement.png"
+      }
+    ]
+  }
+]

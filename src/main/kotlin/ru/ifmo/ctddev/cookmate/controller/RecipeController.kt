@@ -25,6 +25,13 @@ class RecipeController {
     @PostMapping("/saveRecipe")
     fun saveRecipe(@RequestBody recipe: Recipe): String = recipeService.saveRecipe(recipe)
 
+    @PostMapping("/saveListRecipe")
+    fun saveListRecipe(@RequestBody recipes: Array<Recipe>): String {
+        for (recipe in recipes) {
+            recipeService.saveRecipe(recipe)
+        }
+        return "success"
+    }
 
     // TODO: REMOVE
     @GetMapping("/saveTestRecipe")
