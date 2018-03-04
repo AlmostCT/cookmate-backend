@@ -15,7 +15,7 @@ interface RecipeService {
     fun getRecipe(recipeName: String): Recipe?
     fun getRecipe(id: ObjectId): Recipe?
     fun saveRecipe(recipe: Recipe): String
-    fun getUserRecipes(topCount : Int, randomCount : Int): List<Recipe>
+    fun getUsersRecipes(topCount : Int, randomCount : Int): List<Recipe>
 }
 
 @Service("recipeService")
@@ -32,7 +32,7 @@ class RecipeServiceImpl : RecipeService {
         return "was saved success with ${result.recipeId} id\n ${recipe}"
     }
 
-    override fun getUserRecipes(topCount : Int, randomCount : Int): List<Recipe> {
+    override fun getUsersRecipes(topCount : Int, randomCount : Int): List<Recipe> {
         val allUserRecipes = recipeRepository.findAllUsersRecipe().sortedByDescending { t -> t.timeCreation }
         val topRecipes = allUserRecipes.take(topCount).toMutableList()
         val otherRecipes = allUserRecipes.subList(0,  allUserRecipes.size)
