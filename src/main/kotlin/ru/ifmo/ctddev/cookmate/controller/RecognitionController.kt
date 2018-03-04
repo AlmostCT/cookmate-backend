@@ -22,18 +22,20 @@ class RecognitionController {
     private lateinit var recipeService: RecipeService
 
     @GetMapping("/recognize")
-    fun recognize(@RequestParam recipeId : ObjectId, @RequestParam stepId : Int, @RequestParam text: String): String {
+    fun recognize(@RequestParam recipeId : ObjectId, @RequestParam stepId : Int, @RequestParam text: String): RecognitionResponse {
 
         val recipe = recipeService.getRecipe(recipeId)
         if (recipe == null) {
-            return ""
+            return RecognitionResponse("")
         } else {
             val recipeStep = recipe.steps.find { t -> t.stepId == stepId }
             if (recipeStep == null) {
-                return ""
+                return RecognitionResponse("")
             } else {
-                return recognitionService.recognize(recipeStep, text)
+                return RecognitionResponse(recognitionService.recognize(recipeStep, text))
             }
         }
     }
 }
+
+data class RecognitionResponse( val response: String)

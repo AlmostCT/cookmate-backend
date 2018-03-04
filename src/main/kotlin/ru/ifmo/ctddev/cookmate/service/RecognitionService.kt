@@ -39,50 +39,13 @@ class RecognitionServiceImpl: RecognitionService {
         }
     }
 
-
-    private val timeToText = mutableMapOf<Int, String>(
-            1 to "одного",
-            2 to "двух",
-            3 to "трех",
-            4 to "четырех",
-            5 to "пяти",
-            10 to "десяти",
-            15 to "пятнадцати",
-            20 to "двадцати",
-            25 to "двадцати пяти",
-            30 to "тридцати",
-            35 to "тридцати пяти",
-            40 to "сорока",
-            45 to "сорока пяти",
-            50 to "пятидесяти",
-            55 to "пятидесяти пяти"
-    )
-
     override fun recognize(step : RecipeStep, text: String): String {
         val classIdx = getClass(text)
         when (classIdx) {
-            0 -> "Привет" // класс приветсвия
-            1 -> "Next"
-            2 -> "Prev"
-            3 -> if (step.time == 0L) {
-                return "Переходи к следующему шагу как захочешь или скажи мне"
-            } else {
-                if (step.time < 60) {
-                    return "Осталось меньше чем ${timeToText[(step.time / 10 * 10).toInt()]!!} секунд"
-                }
-                if (step.time < 3600) {
-                    return "Осталось меньше чем ${timeToText[(step.time / 5 * 5).toInt()]!!} минут"
-                }
-
-                if (step.time == 3600L) {
-                    return "Осталось меньше одного часа"
-                }
-
-                if (step.time < 10800) {
-                    return "Осталось меньше ${timeToText[(step.time / 3600).toInt()]!!} часов"
-                }
-                return "Осталось ещё очень много времени, пока можно и отдохнуть"
-            }
+            0 -> return "Привет" // класс приветсвия
+            1 -> return "Next"
+            2 -> return "Prev"
+            3 -> return "Time"
             4 -> {
                 val sb = StringBuilder("Сейчас нужны следующие ингриденты. ")
                 for (p in step.products) {
@@ -99,7 +62,7 @@ class RecognitionServiceImpl: RecognitionService {
 
     private fun getClass(text : String) : Int{
         model.rnnClearPreviousState()
-        val data = getINDArray(text)
+        val data = getINDArray(text.toLowerCase())
 
         val lastTimeStep = model.rnnTimeStep(data)[0].tensorAlongDimension(sentenceSize - 1,1,0)
 
