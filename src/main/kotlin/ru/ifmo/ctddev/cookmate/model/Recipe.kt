@@ -27,6 +27,7 @@ data class Recipe(
         val calories: String,
         val totalTime: Long,
         val picture: String?,
+        val ingredients: List<Product>,
         val steps: List<RecipeStep>
 )
 

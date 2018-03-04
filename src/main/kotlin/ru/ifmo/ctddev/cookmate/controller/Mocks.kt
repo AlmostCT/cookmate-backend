@@ -68,6 +68,7 @@ val pancake = Recipe(
         picture = null,
         steps = listOf(step1, step2, step3, step4),
         userName = null,
+        ingredients = listOf(eggs, sugar, flour, salt, milk, butter),
         timeCreation = System.currentTimeMillis()
 )
 
@@ -85,6 +86,7 @@ val userRecipe = Recipe(
         picture = null,
         steps = listOf(step1, step2, step3, step4),
         userName = "User",
+        ingredients = listOf(eggs, sugar, flour, salt, milk, butter),
         timeCreation = System.currentTimeMillis()
 )
 
